@@ -1,0 +1,163 @@
+﻿<Page x:Class="Auth0TokenGenerator.Pages.Auth0Management"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Auth0TokenGenerator.Pages"
+      xmlns:globalLocal="clr-namespace:Auth0TokenGenerator"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:WindowWidth="1250"
+      Title="Auth0Management">
+
+    <!--d:DesignHeight="450"
+    d:DesignWidth="800"
+    Background="LightGray"
+    mc:Ignorable="d"-->
+    <ScrollViewer Background="AliceBlue">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel
+            Grid.Row="0"
+            Grid.ColumnSpan="5"
+            Orientation="Horizontal"
+            Background="AliceBlue" 
+                Margin="0,0,-140,170"
+                Grid.RowSpan="2">
+                <TextBlock Grid.Row="1"
+                       Grid.Column="1"
+                       Width="Auto"
+                       Margin="80,8,0,15"
+                       FontFamily="Segoe UI"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Foreground="Black"
+                           Name="HeaderTitle"
+                       Text="Auth0 User Token info"></TextBlock>
+            </StackPanel>
+
+            <Button x:Name="keyBtn" 
+                    HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Width="50" Height="50" FontFamily="Verdana"     
+                    Background="AliceBlue"   
+                    Click="Back_Home"
+                    Margin="0,0,0,0" BorderBrush="Transparent">
+                <Image Source="/content/img/home_full.png" />
+            </Button>
+            <!--access token-->
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                Height="28"
+                Margin="5,-100,0,20"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Content="Access token: "
+                FontWeight="Bold" RenderTransformOrigin="-3.169,1.844" />
+            <TextBox 
+                Style="{DynamicResource TextBoxStyle2}"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="30,0,0,10"
+                Width="500"
+                Height="140"
+                x:Name="accessToken" 
+                Background="Bisque"
+                TextWrapping="Wrap"
+                Padding="5"  
+                TextAlignment="Justify"></TextBox>
+
+            <Button 
+                Style="{DynamicResource ButtonStyle2}"
+                Grid.Row="1"
+                Grid.Column="2" 
+                Content="Copy" 
+                x:Name="CopyAccess"
+                HorizontalAlignment="Left" 
+                Margin="5,10,0,0"  
+                Click="CopyAccessTokenToClipboard"
+                VerticalAlignment="Top"/>
+            <Button 
+                Style="{DynamicResource ButtonStyle2}"
+                Grid.Row="1"
+                Grid.Column="2" 
+                Content="Inspect" 
+                x:Name="InspecAccess"
+                HorizontalAlignment="Left" 
+                Margin="5,40,0,0"  
+                Click="InspectAccessToken"
+                VerticalAlignment="Top"/>
+
+            <!--id token-->
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                Height="28"
+                Margin="5,-180,0,20"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Content="Identity token: "
+                FontWeight="Bold" RenderTransformOrigin="-3.169,1.844" />
+            <TextBox 
+                Style="{DynamicResource TextBoxStyle2}"
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="30,32,0,10"
+                Height="250"
+                Width="500"
+                x:Name="idToken"  
+                Background="Bisque"
+                TextWrapping="Wrap"
+                Padding="5"  
+                VerticalScrollBarVisibility="Auto"
+                TextAlignment="Justify"></TextBox>
+
+
+            <Button 
+                Style="{DynamicResource ButtonStyle2}"
+                Grid.Row="2"
+                Grid.Column="2" 
+                Content="Copy" 
+                x:Name="CopyId"
+                HorizontalAlignment="Left" 
+                Margin="5,42,0,0"  
+                Click="CopyIdTokenToClipboard"
+                VerticalAlignment="Top"/>
+            <Button 
+                Style="{DynamicResource ButtonStyle2}"
+                Grid.Row="2"
+                Grid.Column="2" 
+                Content="Inspect" 
+                x:Name="InspectId"
+                HorizontalAlignment="Left" 
+                Margin="5,75,0,0" 
+                Click="InspectIdToken"
+                VerticalAlignment="Top"/>
+
+            <Grid 
+                Grid.RowSpan="20" Grid.ColumnSpan="25">
+                <Frame x:Name="GetInspectionData" NavigationUIVisibility="Hidden" ></Frame>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>
+

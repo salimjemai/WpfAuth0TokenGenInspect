@@ -6,3 +6,4 @@
 *.suo
 /Auth0TokenGenerator/bin
 /Auth0TokenGenerator/obj
+*.vsidx

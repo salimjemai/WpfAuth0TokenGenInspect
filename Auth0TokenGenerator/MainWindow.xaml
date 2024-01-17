@@ -1,0 +1,218 @@
+﻿<Window x:Class="Auth0TokenGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Auth0TokenGenerator"
+        mc:Ignorable="d"
+        Title="Token Generator" 
+        Height="650" 
+        Width="750" 
+        ResizeMode="NoResize"           
+        WindowStyle="None" 
+        ShowInTaskbar="False" 
+        AllowsTransparency="True"
+        Background="Transparent">
+
+    <Grid x:Name="Grid">
+        <Border BorderBrush="Black"
+                BorderThickness="1.5"
+                CornerRadius="18"
+                Background="AliceBlue" />
+        <Grid x:Name="Content" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel
+                Grid.Row="0"
+                Grid.ColumnSpan="10"
+                Orientation="Horizontal">
+                <TextBlock Grid.Row="1"
+                            Grid.Column="1"
+                            Width="Auto"
+                            Margin="250,8,0,15"
+                            FontFamily="Segoe UI"
+                            FontSize="35"
+                            FontWeight="Bold"
+                            Foreground="Black"
+                            Text="Authenticate"/>
+                <Button
+                    x:Name="Close" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Width="50" Height="50" 
+                    FontFamily="Verdana"     
+                    Background="AliceBlue"
+                    Margin="220,-2,0,0"
+                    BorderBrush="Transparent"
+                    Click="Close_Click">
+                    <Image Source="/content/img/close-button-icon-png-29.jpg"/>
+                </Button>
+            </StackPanel>
+            <!--Domain-->
+            <Label
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="28"
+            Margin="30,32,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="Domain"
+            FontWeight="Bold" RenderTransformOrigin="-3.169,1.844" />
+            <TextBox
+            Style="{DynamicResource TextBoxStyle1}"
+            Tag="company doamin here"
+            x:Name="domain"
+            Grid.Row="3"
+            Grid.Column="2"
+            Height="28"
+            Margin="65,30,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" Grid.ColumnSpan="7" />
+            <!--APIClientId-->
+            <Label
+            Grid.Row="4"
+            Grid.Column="1"
+            Height="28"
+            Margin="30,32,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="Client ID"
+            FontWeight="Bold" RenderTransformOrigin="-3.169,1.844" />
+            <TextBox
+            Style="{DynamicResource TextBoxStyle1}"
+            x:Name="clientId"
+            Tag="Api Client Id"
+            Grid.Row="4"
+            Grid.Column="2"
+            Height="28"
+            Margin="65,30,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" Grid.ColumnSpan="7" />
+            <!--User Email Address-->
+            <Label
+            Grid.Row="5"
+            Grid.Column="1"
+            Height="28"
+            Margin="30,32,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="Email address"
+            FontWeight="Bold" RenderTransformOrigin="-3.169,1.844" />
+            <TextBox
+            Style="{DynamicResource TextBoxStyle1}"
+            x:Name="email"
+            Tag="Email @"
+            Grid.Row="5"
+            Grid.Column="2"
+            Height="28"
+            Margin="65,30,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" Grid.ColumnSpan="7" />
+            <!--Org Id-->
+            <Label
+            Grid.Row="7"
+            Grid.Column="1"
+            Height="28"
+            Margin="30,32,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="Organization Id"
+            FontWeight="Bold" RenderTransformOrigin="-3.169,1.844" />
+            <TextBox
+            Style="{DynamicResource TextBoxStyle1}"
+            x:Name="orgId"
+            Tag="Organization Identifier"
+            Grid.Row="7"
+            Grid.Column="2"
+            Height="28"
+            Margin="65,30,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" Grid.ColumnSpan="7"/>
+            <Button Style="{DynamicResource ButtonStyle1}"
+                x:Name="GenToken"
+                Grid.Row="8"
+                Grid.Column="2"
+                Height="30"
+                Margin="79,53,185,83"
+                Content="Generate Auth0 token"
+                Click="GenerateToken_OnClick"/>
+            <Button Style="{DynamicResource ButtonStyle1}"
+                x:Name="GetPeviousToken"
+                Grid.Row="8"
+                Grid.Column="2"
+                Height="30"
+                Margin="254,53,10,83"
+                Content="Get Tokens from DB"
+                Click="GetPeviousToken_Click"/>
+            <Button Style="{DynamicResource PurgeDatabaseButtonStyle}"
+                x:Name="PurgeDatabase"
+                Grid.Row="13"
+                Grid.Column="8"
+                    Height="35"
+                    Width="120"
+                Margin="40,50,42,32"
+                Content="Purge Database"
+                Click="Button_Click"/>
+            <TextBox 
+            Style="{DynamicResource TextBoxStyle2}"
+            FontSize="15"            
+            Grid.Row="8" 
+            Grid.Column="2" 
+            x:Name="Authentication_aquired" 
+            Text="Authentication#:"
+            TextWrapping="Wrap" 
+            IsReadOnly="True"
+            Background="white" 
+            Margin="10,116,161,10"  
+            RenderTransformOrigin="0.524,0.393" Grid.ColumnSpan="7"/>
+            <TextBox 
+            Style="{DynamicResource TextBoxStyle2}"
+            Grid.Row="10"
+            Grid.ColumnSpan="9"
+            TextWrapping="Wrap" 
+            VerticalAlignment="Center" 
+            IsReadOnly="True"
+            Width="450" 
+            Height="36"
+            Text="Note: To generate new fresh tokens using the Auth0 Universal Screen, you must restart the application, inhancements might be coming soon" 
+            FontWeight="Bold" 
+            FontStyle="Italic" 
+            FontStretch="ExtraExpanded" Margin="123,0,147,0"/>
+            <Grid
+            Grid.RowSpan="20" Grid.ColumnSpan="25">
+                <Frame x:Name="NavAuthenticationBrowser"  NavigationUIVisibility="Hidden" Navigated="NavAuthenticationBrowser_Navigated" />
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,71 @@
+﻿<Page x:Class="Auth0TokenGenerator.Pages.InspectToken"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Auth0TokenGenerator.Pages"
+      xmlns:globalLocal="clr-namespace:Auth0TokenGenerator"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="InspectToken" 
+      ShowsNavigationUI="True">
+    <ScrollViewer>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <WrapPanel
+                Grid.Row="0"
+                Grid.ColumnSpan="20"
+                Orientation="Horizontal"
+                Background="LightBlue" 
+                Margin="10,10,-140,120" >
+                <TextBlock Grid.Row="0"
+                           Grid.ColumnSpan="10"
+                           Width="Auto"
+                           Margin="180,8,0,15"
+                           FontFamily="Segoe UI"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Foreground="Black"
+                           Text="Inspect Token"></TextBlock>
+
+            </WrapPanel>
+            <!--<globalLocal:NavButton  
+                Click="NavigateBack"
+                ImageSource="/content/img/back_icon.png" 
+                Margin="10,10,0,0" 
+                NavUri="/Pages/Auth0Management.xaml"/>-->
+            <!--<Button Content="Back"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="10,10,0,0"
+                    Padding="15"
+                    BorderThickness="0"
+                    Background="DarkKhaki"
+                    Command="NavigationCommands.BrowseBack"/>-->
+            <TreeView
+                Grid.Row="0"
+                Grid.Column="0" 
+                Margin="10,60,0,0"
+                Width="auto"
+                Height="auto"
+                x:Name="tView" 
+                Grid.ColumnSpan="3" 
+                Grid.RowSpan="4"/>
+
+        </Grid>
+    </ScrollViewer>
+</Page>
+
